@@ -63,7 +63,7 @@ public class PhoneBookTest {
         String number2 = "111-111-222";
 
         //when
-        sut.add(name1, number1); // вроде нежелательно использовать метод при проверке другого метода? 
+        sut.add(name1, number1); // вроде нежелательно использовать метод при проверке другого метода?
         sut.add(name2, number2);
         String name = sut.findByNumber("111-111-111");
 
