@@ -71,4 +71,23 @@ public class PhoneBookTest {
         Assertions.assertEquals("Mariya", name);
         Assertions.assertNotEquals("Sasha", name); // надо этот тест или нет?
     }
+
+    @Test
+    public void testFindByName() { //найти номер по имени без полного перебора
+        // given
+        String name1 = "Mariya";
+        String number1 = "111-111-111";
+
+        String name2 = "Sasha";
+        String number2 = "111-111-222";
+
+        //when
+        sut.add(name1, number1);
+        sut.add(name2, number2);
+        String number = sut.findByName("Mariya");
+
+        //then
+        Assertions.assertEquals("111-111-111", number);
+        Assertions.assertNotEquals("111-111-222", number);
+    }
 }
