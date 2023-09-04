@@ -52,4 +52,23 @@ public class PhoneBookTest {
         Assertions.assertEquals(1, addResult1);
         Assertions.assertEquals(1, addResult2);
     }
+
+    @Test
+    public void testFindByNumber() { //найти имя по номеру без полного перебора
+        // given
+        String name1 = "Mariya";
+        String number1 = "111-111-111";
+
+        String name2 = "Sasha";
+        String number2 = "111-111-222";
+
+        //when
+        sut.add(name1, number1); // вроде нежелательно использовать метод при проверке другого метода? 
+        sut.add(name2, number2);
+        String name = sut.findByNumber("111-111-111");
+
+        //then
+        Assertions.assertEquals("Mariya", name);
+        Assertions.assertNotEquals("Sasha", name); // надо этот тест или нет?
+    }
 }
